@@ -117,6 +117,7 @@ Receive real-time responses from the agent.
 
 
 🛠️ Technical Architecture
+
 ```mermaid
 graph TD
     A[User Interface] --> B[Frontend (React)]

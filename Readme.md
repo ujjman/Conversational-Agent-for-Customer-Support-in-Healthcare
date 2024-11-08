@@ -118,7 +118,7 @@ Receive real-time responses from the agent.
 
 🛠️ Technical Architecture
 
-```mermaid
+```bash
 graph TD
     A[User Interface] --> B[Frontend (React)]
     B --> C[API Calls]

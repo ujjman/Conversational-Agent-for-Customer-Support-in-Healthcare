@@ -65,13 +65,44 @@ A powerful conversational AI application that can be customized to fit different
     ```bash
     pip install -r requirements.txt
     ```
+
+4. **Install Finetuned model from huggingface:**
+    ```bash
+    git lfs install
+
+    git clone https://huggingface.co/ujjman/llama-3.2-3B-Medical-QnA-unsloth-gguf
+    ```
+
+5. **Go to model directory and select your quantized model:**
+    - Go to the directeory
+        ```bash
+        cd llama-3.2-3B-Medical-QnA-unsloth-gguf
+         ```
+    - Now create a file named 'ModelFile.txt' with below content:
+        ```bash
+        # Modelfile
+        FROM "./<name-of-quantized-model.gguf>"
+        ```
+        In place of <name-of-quantized-model.gguf>, write the name of your selected model. For eg if you select 8-bit quantized model then your 'ModelFile.txt' content will be:
+
+        ```bash
+        # Modelfile
+        FROM "./<unsloth.Q8_0.gguf>"
+        ```
+6. **Now use ollama to build the above model using command:**
+    ```bash
+    ollama create "llama-3.2-3B-Medical-QnA-unsloth" -f Modelfile.txt
+    ```
+    Replace "llama-3.2-3B-Medical-QnA-unsloth" with the name you want to give your model, and Modelfile.txt with the path to your Modelfile.
+
+
 4. **Include the model name in the backend code:**
 
     ```bash
-    #Add the model name same as you saved it in ollama
+    #Add the model name same as you saved it in ollama(same as above)
     model = OllamaLLM(model="<ModelName>")
-    #For eg if you saved model as "Medical-llama3.2" then
-    model = OllamaLLM(model="Medical-llama3.2")
+    #For eg if you saved model as "llama-3.2-3B-Medical-QnA-unsloth" then
+    model = OllamaLLM(model="llama-3.2-3B-Medical-QnA-unsloth")
     ```
 
 4. **Run the backend server:**

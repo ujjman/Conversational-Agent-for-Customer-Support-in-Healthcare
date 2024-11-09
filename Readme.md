@@ -96,7 +96,7 @@ A powerful conversational AI application that can be customized to fit different
     Replace "llama-3.2-3B-Medical-QnA-unsloth" with the name you want to give your model, and Modelfile.txt with the path to your Modelfile.
 
 
-4. **Include the model name in the backend code:**
+4. **Include the model name in the backend code (backend.py):**
 
     ```bash
     #Add the model name same as you saved it in ollama(same as above)
